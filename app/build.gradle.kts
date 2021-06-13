@@ -1,5 +1,3 @@
-import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
-
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -17,21 +15,11 @@ android {
         versionName = "1.0"
     }
 
-    signingConfigs {
-        create("release") {
-            storeFile = file(gradleLocalProperties(rootDir).getProperty("keystorePath"))
-            storePassword = gradleLocalProperties(rootDir).getProperty("storePass")
-            keyAlias = gradleLocalProperties(rootDir).getProperty("keystoreAlias")
-            keyPassword = gradleLocalProperties(rootDir).getProperty("keyPass")
-        }
-    }
-
     buildTypes {
         named("release") {
             isShrinkResources = true
             isMinifyEnabled = true
             proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("release")
         }
     }
 

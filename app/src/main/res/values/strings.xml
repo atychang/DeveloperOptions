@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Developer Options</string>
+    <string name="developer_options">@string/app_name</string>
+    <string name="developer_options_is_disabled">You need to enable developer options</string>
+</resources>

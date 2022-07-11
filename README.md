@@ -1,4 +1,4 @@
-# DeveloperOptions
+# [DeveloperOptions](https://play.google.com/store/apps/details?id=com.atychang.developeroptions)
 
 ![Android CI](https://github.com/atychang/DeveloperOptions/actions/workflows/android.yml/badge.svg)
 

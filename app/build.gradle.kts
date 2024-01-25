@@ -1,25 +1,28 @@
 plugins {
     id("com.android.application")
-    kotlin("android")
+    id("org.jetbrains.kotlin.android")
 }
 
 android {
-    compileSdkVersion(30)
-    buildToolsVersion("30.0.3")
+    namespace = "com.atychang.developeroptions"
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.atychang.developeroptions"
-        minSdkVersion(24)
-        targetSdkVersion(30)
+        minSdk = 24
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
     }
 
     buildTypes {
-        named("release") {
+        release {
             isShrinkResources = true
             isMinifyEnabled = true
-            proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
         }
     }
 
@@ -34,5 +37,5 @@ android {
 }
 
 dependencies {
-    implementation("com.google.android.material:material:1.3.0")
+    implementation("com.google.android.material:material:1.11.0")
 }

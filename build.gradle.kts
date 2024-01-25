@@ -1,36 +1,20 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:7.1.0-alpha02")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10")
-    }
-}
-
 plugins {
-    id("com.diffplug.spotless") version "5.13.0"
+    id("com.android.application") version "8.2.2" apply false
+    id("org.jetbrains.kotlin.android") version "1.9.0" apply false
+    id("com.diffplug.spotless") version "6.25.0"
 }
 
 subprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
 
     apply(plugin = "com.diffplug.spotless")
-    spotless {
+    configure<com.diffplug.gradle.spotless.SpotlessExtension> {
         kotlin {
-            target("**/*.kt")
-            targetExclude("$buildDir/**/*.kt")
-            targetExclude("bin/**/*.kt")
-            ktlint("0.41.0")
+            ktlint("1.0.0")
         }
 
         kotlinGradle {
             target("*.gradle.kts")
-            ktlint("0.41.0")
+            ktlint("1.0.0")
         }
     }
 }
